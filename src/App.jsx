@@ -11,8 +11,19 @@ function App() {
 
   const submitHandler = (e)=>{
     e.preventDefault()
-    console.log(`${title} ----- ${desc} ----  ${prio}`)
-    console.log(`form submitted`)
+
+    // console.log(`${title} ----- ${desc} ----  ${prio}`)
+    // console.log(`form submitted`)
+    // const copy = [...tasks]
+    // copy.push({title, desc, prio})
+    // setTasks(copy)
+    // console.log(`${tasks}`)
+    
+    setTasks(prev => [...tasks, {title, desc, prio}])
+    setTitle("")
+    setDesc("")
+    setPrio("")
+    console.log(`${tasks}`)
   }
 
   return (
