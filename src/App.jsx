@@ -26,7 +26,6 @@ function App() {
     // copy.push({title, desc, prio})
     // setTasks(copy)
     // console.log(`${tasks}`)
-    
     setTasks(prev => [...prev, {title, desc, prio, completed: false}])
     setTitle("")
     setDesc("")
@@ -45,6 +44,13 @@ function App() {
 
   }
 
+  const deleteTask = (idx) =>{
+    const copy = [...tasks]
+    copy.splice(idx, 1)
+    setTasks(copy)
+
+  }
+
   return (
     <div className="h-screen w-screen flex md:flex-row flex-col align-start justify-between p-4">
       <TasksInputs 
@@ -56,7 +62,7 @@ function App() {
           setDesc= {setDesc} 
           setPrio = {setPrio}/>
 
-      <Tasks tasks = {tasks} toggleComplete = {toggleComplete}/>
+      <Tasks tasks = {tasks} toggleComplete = {toggleComplete} deleteTask = {deleteTask}/>
     </div>
   )
 }

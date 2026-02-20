@@ -1,5 +1,5 @@
 import { Dot } from 'lucide-react' 
-export default function TaskCard({idx,title, desc, prio, completed, toggleComplete}){
+export default function TaskCard({idx,title, desc, prio, completed, toggleComplete, deleteTask}){
     // let values = ""
     // if (prio === "3"){
     //     values = "text-red flex bg-red-400 h-6 px-3 rounded-2xl"
@@ -15,7 +15,7 @@ export default function TaskCard({idx,title, desc, prio, completed, toggleComple
         2: "text-orange-700 bg-orange-400",
         1: "text-green-700 bg-green-400",
     };
-    const values = `flex items-center gap-1 h-6 px-3 rounded-2xl ${priorityStyles[prio]}`
+    const values = `flex items-center justify-center gap-1 h-6 rounded-2xl ${priorityStyles[prio]}`
 
     const priority = {
         3: "High",
@@ -39,7 +39,11 @@ export default function TaskCard({idx,title, desc, prio, completed, toggleComple
                         <p className={`text-gray-600 text-wrap break-words whitespace-normal`}>{desc}</p>
                     </div>      
                 </div>
-                <p className= {values}>{prio_value}</p>    
+                <div className='flex flex-col'>
+                    <p className= {values}>{prio_value}</p>
+                    <button className='text-black bg-amber-300 mt-5 rounded-2xl active:bg-red-500' onClick = {deleteTask}>Delete</button>
+                </div>
+                        
             </div>
 
         </div>
