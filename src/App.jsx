@@ -1,12 +1,13 @@
 import { useState } from "react"
 import Tasks from "./components/Tasks"
 import TasksInputs from "./components/TasksInputs"
+import { compile } from "tailwindcss"
 
 function App() {
 
   const[title, setTitle] = useState("")
   const[desc, setDesc] = useState("")
-  const[prio, setPrio] = useState("")
+  const[prio, setPrio] = useState("1")
   const[tasks, setTasks] = useState([])
 
   const submitHandler = (e)=>{
@@ -19,17 +20,36 @@ function App() {
     // setTasks(copy)
     // console.log(`${tasks}`)
     
-    setTasks(prev => [...tasks, {title, desc, prio}])
+    setTasks(prev => [...prev, {title, desc, prio, completed: false}])
     setTitle("")
     setDesc("")
     setPrio("")
-    console.log(`${tasks}`)
+  }
+
+  const toggleComplete = (idx) =>{
+    let copy = [...tasks];
+
+    copy[idx] = {
+      ...copy[idx], completed : !copy[idx].completed
+    };
+
+    setTasks(copy)
+
+
   }
 
   return (
     <div className="h-screen w-screen flex md:flex-row flex-col align-start justify-between p-4">
-      <TasksInputs submitHandler = {submitHandler} title = {title} desc = {desc} prio = {prio} setTitle = {setTitle} setDesc= {setDesc} setPrio = {setPrio}/>
-      <Tasks/>
+      <TasksInputs 
+          submitHandler = {submitHandler}
+          title = {title} 
+          desc = {desc} 
+          prio = {prio} 
+          setTitle = {setTitle} 
+          setDesc= {setDesc} 
+          setPrio = {setPrio}/>
+
+      <Tasks title = {title} desc = {desc} prio = {prio} tasks = {tasks} toggleComplete = {toggleComplete}/>
     </div>
   )
 }
