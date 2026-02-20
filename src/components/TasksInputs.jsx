@@ -26,7 +26,7 @@ export default function TasksInputs({submitHandler, title, desc, prio, setTitle,
                 placeholder="Description"></textarea>
 
                 {/* Priority-radio buttons */}
-                <div className="flex justify-between my-5">
+                <div className="flex justify-around my-5">
                     <label className="flex justify-center gap-2 text-red-500"><input type="radio" name="priority" value="3" checked = {prio === "3"} onChange = {(e) => setPrio(e.target.value)}/>High Priority</label>
                     <label className="flex justify-center gap-2 text-orange-300"><input type="radio" name="priority" value="2" checked = {prio === "2"} onChange = {(e) => setPrio(e.target.value)}/>Medium Priority</label>
                     <label className="flex justify-center gap-2 text-green-300"><input type="radio" name="priority" value="1" checked = {prio === "1"} onChange = {(e) => setPrio(e.target.value)}/>Least Priority</label>
