@@ -3,20 +3,25 @@ import Tasks from "./components/Tasks"
 import TasksInputs from "./components/TasksInputs"
 
 function App() {
+  const[title, setTitle] = useState("")   //Title useState
 
-  
-  const[title, setTitle] = useState("")
-  const[desc, setDesc] = useState("")
-  const[prio, setPrio] = useState("")
+  const[desc, setDesc] = useState("")   //Description useState
+
+  const[prio, setPrio] = useState("")     //Priority useState
+
+  // useState of Task depending on Local storage
   const[tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem("tasks")
     return saved ? JSON.parse(saved) : []
   })
 
+  // Change in the tasks should also update the Local storage
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks))
   }, [tasks])
 
+
+  // submitHandler to catch the form submission
   const submitHandler = (e)=>{
     e.preventDefault()
 
@@ -26,12 +31,15 @@ function App() {
     // copy.push({title, desc, prio})
     // setTasks(copy)
     // console.log(`${tasks}`)
-    setTasks(prev => [...prev, {title, desc, prio, completed: false}])
-    setTitle("")
+    setTasks(prev => [...prev, {title, desc, prio, completed: false}])   //Update the Tasks when the form creates a new values
+
+    setTitle("")  //Set the title to empty that reflects in the input 
     setDesc("")
     setPrio("")
   }
 
+
+  // To catch the the checked box in the TaskCards
   const toggleComplete = (idx) =>{
     let copy = [...tasks];
 
@@ -44,6 +52,7 @@ function App() {
 
   }
 
+// Deleting function 
   const deleteTask = (idx) =>{
     const copy = [...tasks]
     copy.splice(idx, 1)
