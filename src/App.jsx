@@ -1,14 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Tasks from "./components/Tasks"
 import TasksInputs from "./components/TasksInputs"
-import { compile } from "tailwindcss"
 
 function App() {
 
+  
   const[title, setTitle] = useState("")
   const[desc, setDesc] = useState("")
-  const[prio, setPrio] = useState("1")
-  const[tasks, setTasks] = useState([])
+  const[prio, setPrio] = useState("")
+  const[tasks, setTasks] = useState(() => {
+    const saved = localStorage.getItem("tasks")
+    return saved ? JSON.parse(saved) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks])
 
   const submitHandler = (e)=>{
     e.preventDefault()
@@ -49,7 +56,7 @@ function App() {
           setDesc= {setDesc} 
           setPrio = {setPrio}/>
 
-      <Tasks title = {title} desc = {desc} prio = {prio} tasks = {tasks} toggleComplete = {toggleComplete}/>
+      <Tasks tasks = {tasks} toggleComplete = {toggleComplete}/>
     </div>
   )
 }

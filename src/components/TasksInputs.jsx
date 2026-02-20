@@ -11,7 +11,7 @@ export default function TasksInputs({submitHandler, title, desc, prio, setTitle,
                     }
                 }} 
                 placeholder="Enter a Task"></input>
-                <textarea className = "border-2 rounded-2xl p-3 w-full my-8 h-90" value = {desc} onChange = {(e) => {
+                <textarea className = "border-2 rounded-2xl p-3 w-full my-8 h-70" value = {desc} onChange = {(e) => {
                     if (e.target.value.length <= MaxDesc){      //Restricting the length of the description
                         setDesc(e.target.value)
                     }
