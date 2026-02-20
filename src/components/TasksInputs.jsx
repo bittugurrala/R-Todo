@@ -1,8 +1,10 @@
+
+
 export default function TasksInputs({submitHandler, title, desc, prio, setTitle, setDesc, setPrio}){
     const Title_max_count = 100
     const MaxDesc = 500
     return (
-        <div className="flex-1 md:min-w-1/2 p-4">
+        <div className="flex-1 p-4">
             {/* Container heading */}
             <h3 className="text-3xl font-bold">Add To Do Tasks here</h3>
 

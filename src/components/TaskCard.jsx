@@ -1,4 +1,5 @@
 import { Dot } from 'lucide-react' 
+
 export default function TaskCard({idx,title, desc, prio, completed, toggleComplete, deleteTask}){
     // let values = ""
     // if (prio === "3"){
@@ -41,8 +42,8 @@ export default function TaskCard({idx,title, desc, prio, completed, toggleComple
                     <input type = "checkbox" checked = {completed}  onChange={() => toggleComplete(idx)} className="h-10 w-5 flex-shrink-0"></input>
 
                     <div className='min-w-0'>
-                        <h3 className= {`text-2xl font-bold text-black break-words`}>{title}</h3>
-                        <p className={`text-gray-600 break-words whitespace-normal`}>{desc}</p>
+                        <h3 className= {`text-2xl font-bold text-black`}>{title}</h3>
+                        <p className={`text-gray-600 my-3  whitespace-normal`}>{desc}</p>
                     </div>  
                 </div>
 

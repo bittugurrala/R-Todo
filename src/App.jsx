@@ -61,7 +61,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen w-screen flex md:flex-row flex-col align-start justify-between p-4">
+    <div className="h-screen w-full flex md:flex-row flex-col p-4 m-0">
       <TasksInputs 
           submitHandler = {submitHandler}
           title = {title} 
