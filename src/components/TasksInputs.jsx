@@ -35,7 +35,7 @@ export default function TasksInputs({submitHandler, title, desc, prio, setTitle,
                 </div>
 
                 {/* Add button */}
-                <button className="rounded bg-white text-black my-8 w-full active:bg-gray-500">Add</button>
+                <button className="rounded-2xl bg-white text-black my-8 w-full active:bg-gray-500">Add</button>
             </form>
         </div>
     )
