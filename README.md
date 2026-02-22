@@ -50,3 +50,24 @@ R-Todo/ <br>
 ├── index.html<br>
 ├── package.json<br>
 └── vite.config.js<br>
+
+---
+
+## How It Works
+
+- Tasks are stored in **Local Storage**, ensuring data persistence even after page refresh.
+- State is lifted to parent components to manage task creation, updates, and deletion.
+- Props are passed to child components for modularity and reusability.
+- Controlled form inputs ensure predictable UI behavior.
+
+---
+
+## Installation & Setup
+
+Clone the repository and run the project locally:
+
+```bash
+git clone https://github.com/bittugurrala/R-Todo.git
+cd R-Todo
+npm install
+npm run dev
